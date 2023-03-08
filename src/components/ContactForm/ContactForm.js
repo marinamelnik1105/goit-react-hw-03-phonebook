@@ -16,7 +16,7 @@ export const ContactForm = ({ onSave }) => {
     <Formik
       initialValues={{
         name: '',
-        number: 0,
+        number: '',
       }}
       validationSchema={FormSchema}
       onSubmit={(values, actions) => {
