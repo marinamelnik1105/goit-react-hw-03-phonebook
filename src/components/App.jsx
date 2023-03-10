@@ -30,11 +30,21 @@ this.setState({contacts: parsedContacts})
 
   addContacts = newContacts =>
   {
-    this.setState(prevState =>
+    const repeatCheck = () =>
+    {
+      return this.state.contacts.some(value =>
+      {
+      return value.name.toLowerCase()=== newContacts.name.toLowerCase()})
+    }
+    if (repeatCheck()) {
+      return alert(`${newContacts.name} is already in contacts.`)
+    } else { this.setState(prevState =>
     {
       return {
       contacts: [...prevState.contacts, newContacts]}
     })
+    }
+   
     
   }
   deleteContacts = contactId =>
